@@ -1,0 +1,230 @@
+/*-------------- font family ----------------*/
+@font-face {
+  font-family: popin;
+  src: url(/css/font/med.ttf);
+  src: url(/css/font/reg.ttf);
+}
+
+/*-------- color, fontSize and weight --------*/
+
+:root {
+  /*-------- color ---------*/
+  --white: #fff;
+  --black: #000;
+
+  /*------- font size -------*/
+  --family: popin;
+  --h1-font: 1.75rem;
+  --normal-font: 1rem;
+  --small-font: 0.813rem;
+
+  /*------- font weight ------*/
+  --medium: 500;
+}
+
+/*-------------- Base ----------------*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,
+input,
+button {
+  font-size: var(--normal-font);
+  font-family: var(--family);
+}
+
+body {
+  color: var(--white);
+  text-decoration: none;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*-------------- login ----------------*/
+
+.login {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+.login-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.login-form {
+  position: relative;
+  background-color: #1a1a1a1a;
+  border: 2px solid var(--white);
+  margin-inline: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.login-title {
+  text-align: center;
+  font-size: var(--h1-font);
+  font-weight: var(--medium);
+  margin-bottom: 2rem;
+}
+
+.login-content,
+.login-box {
+  display: grid;
+}
+
+.login-content {
+  row-gap: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-box {
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  column-gap: 0.75rem;
+  border-bottom: 2px solid var(--white);
+}
+
+.login-icon,
+.login-eye {
+  font-size: 1.25rem;
+}
+
+.login-box-input {
+  position: relative;
+}
+
+.login-input {
+  width: 100%;
+  padding-block: 0.8rem;
+  background: none;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.login-label {
+  position: absolute;
+  left: 0;
+  top: 13px;
+  font-weight: var(--medium);
+  transition: top 0.3s, font-size 0.3s;
+}
+
+.login-eye {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.login-box:nth-child(2) input {
+  padding-right: 1.8rem;
+}
+
+.login-check,
+.login-check-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-check {
+  margin-bottom: 1.5rem;
+}
+
+.login-check-label,
+.login-forget,
+.login-register {
+  font-size: var(--small-font);
+}
+
+.login-check-group {
+  column-gap: 0.5rem;
+}
+
+.login-check-input {
+  width: 16px;
+  height: 16px;
+}
+
+.login-forget {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.login-forget:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--white);
+  font-weight: var(--medium);
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.login-register {
+  text-align: center;
+}
+
+.login-register a {
+  color: var(--white);
+  font-weight: var(--medium);
+  text-decoration: none;
+}
+
+.login-register a:hover {
+  text-decoration: underline;
+}
+
+/* input focus move label up  */
+.login-input:focus + .login-label {
+  top: -12px;
+  font-size: var(--small-font);
+}
+
+/* input focus sticky top label  */
+.login-input:not(:placeholder-shown).login-input:not(:focus) + .login-label {
+  top: -12px;
+  font-size: var(--small-font);
+}
+
+/*----------------- breakpoints ----------------*/
+@media screen and (min-width: 576px) {
+  .login {
+    justify-content: center;
+  }
+
+  .login-form {
+    width: 432px;
+    padding: 2rem 3rem;
+    border-radius: 1.5rem;
+  }
+
+  .login-title {
+    font-size: 2rem;
+  }
+}
